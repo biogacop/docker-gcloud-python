@@ -15,7 +15,7 @@ La aportación es la integración continua con google cloud usando el fichero GC
 Instrucciones para automatizar el despliegue en:
 https://cloud.google.com/community/tutorials/cicd-cloud-run-github-actions
 
-
+```
 $ . ./env.sh
 $ gcloud config set project PROJECT_ID
 $ google auth login
@@ -29,17 +29,22 @@ ACTIVE  ACCOUNT
 To set the active account, run:
     $ gcloud config set account `ACCOUNT`
 
+```
 
 
+```
 $ gcloud iam service-accounts create $ACCOUNT_NAME   --description="Cloud Run deploy account"   --display-name="Cloud-Run-Deploy"
 $ gcloud projects add-iam-policy-binding $PROJECT_ID   --member=serviceAccount:$ACCOUNT_NAME@$PROJECT_ID.iam.gserviceaccount.com   --role=roles/run.admin
 $ gcloud projects add-iam-policy-binding $PROJECT_ID   --member=serviceAccount:$ACCOUNT_NAME@$PROJECT_ID.iam.gserviceaccount.com   --role=roles/storage.admin
 $ gcloud projects add-iam-policy-binding $PROJECT_ID   --member=serviceAccount:$ACCOUNT_NAME@$PROJECT_ID.iam.gserviceaccount.com   --role=roles/iam.serviceAccountUser
 
+```
+
+```
 $ gcloud iam service-accounts keys create key.json \
     --iam-account $ACCOUNT_NAME@$PROJECT_ID.iam.gserviceaccount.com
 
-
+```
 
 
 
