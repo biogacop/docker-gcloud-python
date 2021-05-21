@@ -1,12 +1,5 @@
 
 
-
-# Créditos
-
-Proyecto forkeado desde https://github.com/lvthillo/python-flask-docker.git.
-
-Mantenemos las indicaciones originales en la parte final de este fichero. 
-
 # Nuestra aportación
 
 La aportación es la integración continua para desplegar con CI/CD desde Github al sistema de contenedores de Google Cloud.
@@ -84,7 +77,7 @@ $ gcloud iam service-accounts keys create key.json \
 
 ```
 
-### Permisionado del usuario para CI
+### Permisionado del usuario para CI
 
 
 En las instrucciones de google se sobre permisiona al usuario para CI haciéndolo Admin de demasiadas cosas. Este conjunto de permisos es más ajustado:
@@ -123,7 +116,7 @@ App Engine Admin API
 ## Configuración en Github
 
 
-### Configuración de secretos
+### Configuración de secretos
 
 
 Vamos a crear 4 secrets, entrando por Settings -> Secrets -> New repository Secret:
@@ -136,7 +129,7 @@ Vamos a crear 4 secrets, entrando por Settings -> Secrets -> New repository Secr
  
 
 
-### Actions
+### Actions
 
 
 Por el simple hecho de tener el fichero GCP-Deploy.yml se desencadenará una acción automática de CI. Si hemos concedido los permisos y habilitado todo lo anterior, el único error que cabe esperar en una aplicación sencilla es que no se pueda desplegar bien.
@@ -148,7 +141,7 @@ Un fallo  en el despliegue tras varios éxitos, siempre es señal de que el cont
 Una Action deja un log. Puede ser re-ejecutada de nuevo para ver si produce un efecto diferente pero eso solo va a ser así si el problema era de permisos o de secretos y no del contenido de repositorio.
 
 
-## Resultado
+## Resultado
 
 Tras el despliegue tenemos una URL pública del tipo  https://alumno01-cf6czs3gma-ey.a.run.app/
 
@@ -156,7 +149,7 @@ Si no está accesible para todos los orígenes, Cloud Run -> <aplicación> -> Tr
 
 
 
-# Sobre la gratuidad de los recursos empleados
+# Sobre la gratuidad de los recursos empleados
 
 
 ## Github
@@ -191,6 +184,13 @@ Hay un acceso gratuito de 300$ o 90 días para usar los servicios de google clou
 # README.md del proyecto python base
 
  
+## Créditos
+
+
+Proyecto forkeado desde https://github.com/lvthillo/python-flask-docker.git.
+
+Mantenemos las indicaciones originales en la parte final de este fichero. 
+
 
 ## python-flask-docker
 Basic Python Flask app in Docker which prints the hostname and IP of the container
