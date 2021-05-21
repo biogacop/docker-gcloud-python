@@ -27,7 +27,8 @@ https://cloud.google.com/community/tutorials/cicd-cloud-run-github-actions
   * Como los despliegues están basados en contenedores docker, el resultado en la nube debe ser el mismo que en local. Todo puede probarse y subirse cuando está maduro.
 
 
-## Secuencia de configuración en Google Cloud 
+## Secuencia de configuración en Google Cloud
+
 
 
 Partimos de la base de que se tiene instalado el cliente SDK de google cloud. Es interesante probarlo pero no es realmente imprescindible puesto que casi todo se puede hacer desde la consola gráfica.
@@ -64,7 +65,8 @@ To set the active account, run:
 Como se ve, tenemos la posibilidad de manejar varias identidades y vamos a poner conmutar entre varias de ellas.
 
 
-### Creación de usuario instrumental para CI
+### Creación de usuario instrumental para CI
+
 
 
 Creamos una nueva cuenta circunscrita al espacio de trabajo de Google Cloud en nuestro proyecto. La usará el repositorio. Puede haber tantas como repositorios y aplicaciones queramos tener. La creación debe hacerla el propietario del espacio Google Cloud bien desde linea de comandos o desde consola.
