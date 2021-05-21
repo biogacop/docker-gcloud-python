@@ -146,6 +146,14 @@ Un fallo  en el despliegue tras varios éxitos, siempre es señal de que el cont
 Una Action deja un log. Puede ser re-ejecutada de nuevo para ver si produce un efecto diferente pero eso solo va a ser así si el problema era de permisos o de secretos y no del contenido de repositorio.
 
 
+## Resultado
+
+Tras el despliegue tenemos una URL pública del tipo  https://alumno01-cf6czs3gma-ey.a.run.app/
+
+Si no está accesible para todos los orígenes, Cloud Run -> <aplicación> -> Triggers -> "Allow unauthenticated invocatios"
+
+
+
 # Sobre la gratuidad de los recursos empleados
 
 
