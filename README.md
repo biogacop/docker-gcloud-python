@@ -9,14 +9,26 @@ Mantenemos las indicaciones originales en la parte final de este fichero.
 
 # Nuestra aportación
 
-La aportación es la integración continua con google cloud para desplegar con CI/CD desde Github al sistema de contenedores de Google Cloud.
+La aportación es la integración continua para desplegar con CI/CD desde Github al sistema de contenedores de Google Cloud.
 
 
 Las instrucciones para automatizar el despliegue son una mejora de las que provee Google en:
 https://cloud.google.com/community/tutorials/cicd-cloud-run-github-actions
 
 
-## Secuencia de configuración desde linea de comandos
+# Conceptos
+
+
+  * En google cloud creamos proyectos que son agregadores de recursos de todo tipo. Un proyecto puede tener varios almacenes de datos, bases de datos, contenedores desplegados, imágenes docker registradas, logs, etc.. Nosotros sobre todo estaremos interesados en que diferentes alumnos pueden desplegar cada uno su aplicación de forma separada pero dentro del mismo proyecto.
+  * En Github, vamos a tener repositorios públicos o privados con diferentes ramas. De una rama o de todas podemos hacer un despliegue automático con lo que se llama Integración contínua.
+  * La integración continua es un proceso con diferentes etapas en las que se utilizan algunos recursos de Github y otros remotos de nuestro proveedor de nube. Para ello hay que dar a github las credenciales y definir las etapas.
+  * Lo mismo que hacemos con Github puede hacerse con Gitlab o con bitbucket pero los ficheros clave se llaman de diferente manera.
+  * Aunque es posible un uso gratuíto, la cantidad de recursos disponibles está acotada y tarde o temprano hay que pagar según tarifa.
+  * Como los despliegues están basados en contenedores docker, el resultado en la nube debe ser el mismo que en local. Todo puede probarse y subirse cuando está maduro.
+
+
+## Secuencia de configuración en Google Cloud 
+
 
 Partimos de la base de que se tiene instalado el cliente SDK de google cloud. Es interesante probarlo pero no es realmente imprescindible puesto que casi todo se puede hacer desde la consola gráfica.
 
@@ -105,6 +117,33 @@ App Engine Admin API
 
 
 ```
+
+## Configuración en Github
+
+
+### Configuración de secretos
+
+
+Vamos a crear 4 secrets, entrando por Settings -> Secrets -> New repository Secret:
+
+
+  - GCP_APP_NAME, nombre de la aplicación una vez desplegada. Puede haber más de una en un proyecto Gcloud. En nuestro ejemplo "alumno01" (sin comillas).
+  - GCP_CREDENTIALS, contenido completo del key.json. Es el json tal cual
+  - GCP_EMAIL, el usuario instrumental para CI, en nuestro caso "dockerumu-ci@practml.iam.gserviceaccount.com"  (sin comillas)
+  - GCP_PROJECT_ID, el nombre del proyecto en google cloud, en nuestro caso "practml" (sin comillas)
+ 
+
+
+### Actions
+
+
+Por el simple hecho de tener el fichero GCP-Deploy.yml se desencadenará una acción automática de CI. Si hemos concedido los permisos y habilitado todo lo anterior, el único error que cabe esperar en una aplicación sencilla es que no se pueda desplegar bien.
+
+
+Un fallo  en el despliegue tras varios éxitos, siempre es señal de que el contenedor contiene un software que no arranca bien. Prueba a hacer el build en tu equipo y ejecútalo para depurar los errores antes de subirlo a la nube.
+
+
+Una Action deja un log. Puede ser re-ejecutada de nuevo para ver si produce un efecto diferente pero eso solo va a ser así si el problema era de permisos o de secretos y no del contenido de repositorio.
 
 
 # Sobre la gratuidad de los recursos empleados
