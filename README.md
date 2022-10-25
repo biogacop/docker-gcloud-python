@@ -42,7 +42,7 @@ $ gcloud config set project PROJECT_ID
 Hacemos login si lo que se quiere es trabajar desde shell
 
 ```
-$ google auth login
+$ gcloud auth login
 
 $ gcloud auth list
       Credentialed Accounts
